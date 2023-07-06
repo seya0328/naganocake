@@ -12,7 +12,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   sessions: "admin/sessions"
 }
   #root to:はサイトのルートページを決める記述
-  root to: "homes#top"
+  root to: "public/homes#top" 
+  get "homes/about" => "homes#about", as: "about"
   #devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # 会員側のルーティング設定
@@ -24,6 +25,16 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   namespace :admin do #namespaceを適用させている場合、resources :itemsをnamespace :admin do ~ endで囲う
     get 'items' => 'admin/items#index'
     
-    resources :items
+    resources :items , only:[ :index, :new, :create, :show, :edit, :update]
+    
+  
+
   end
+  
+  namespace :public do
+    get 'items' => 'public/items#index'
+    
+    resources :items , only:[ :index, :show]
+  end
+  
 end
