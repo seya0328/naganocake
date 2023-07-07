@@ -13,7 +13,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
 }
   #root to:はサイトのルートページを決める記述
   root to: "public/homes#top" 
-  get "homes/about" => "homes#about", as: "about"
+  get "about" => "public/homes#about", as: "about"
   #devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # 会員側のルーティング設定
