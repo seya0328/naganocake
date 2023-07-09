@@ -4,7 +4,7 @@ class Admin::ItmesController < ApplicationController
   end
   
   def new
-    @items = Item.all
+    
   end
   
   def create
