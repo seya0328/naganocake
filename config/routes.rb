@@ -34,8 +34,9 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   
   scope module: :public do
     # get 'items' => 'public/items#index'
-    
+    get 'customers/my_page' => 'customers#show', as: "my_page"
     resources :items , only:[ :index, :show]
+    resources :customers, only:[ :edit, :update, :confirm_with, :withdraw]
   end
   
 end
