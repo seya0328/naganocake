@@ -1,0 +1,45 @@
+<h2>会員情報編集</h2>
+<%= form_with model: @customer, url: customers_information_path do |f| %>
+  
+  <p>姓</p>
+  <div class="field">
+   <%= f.text_field :last_name %>
+  </div>
+  <p>名</p>
+  <div class="field">
+    <%= f.text_field :first_name %>
+  </div>
+   <p>姓カナ</p> 
+  <div class="field">
+   <%= f.text_field :last_name_kana %>
+  </div>
+  <p>名カナ</p>
+  <div class="field">
+   <%= f.text_field :first_name_kana %>
+ </div>
+ <p>郵便番号</p>
+  <div class="field">
+   <%= f.text_field :postal_code %>
+ </div>
+ <p>住所</p>
+  <div class="field">
+   <%= f.text_field :address %>
+ </div>
+  
+  <p>電話番号</p>
+ <div class="field">
+   <%= f.text_field :telephone_number %>
+ </div>
+ <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "メールアドレス" %>
+  </div>
+
+ 
+  
+  <div class="actions">
+    <%= f.submit "編集内容を保存" %>
+  </div>
+<% end %>
+  
+
