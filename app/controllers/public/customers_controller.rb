@@ -14,4 +14,10 @@ class Public::CustomersController < ApplicationController
       render :edit
     end
   end
+    def withdraw
+      @customer = Customer.find(current_customer.id)
+      @customer.update(is_deleted: true)
+      reaet[:notice] = "退会処理を行いました"
+      redirect_to root_path
+    end
 end
