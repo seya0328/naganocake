@@ -33,7 +33,6 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   end
   
   scope module: :public do
-    root to: 'homes#top'
     # get 'items' => 'public/items#index'
     # customers
     get 'customers/my_page' => 'customers#show', as: "my_page"
@@ -41,7 +40,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     # 退会確認画面
     get 'customers/confirm_withdraw' => 'customers#confirm_withdraw', as: "confirm_withdraw"
     
-    patch 'customers/withdraw' => 'customer#withdraw', as: "withdraw"
+    patch 'customers/withdraw' => 'customers#withdraw', as: "withdraw"
     
     
     resources :items , only:[ :index, :show]
