@@ -39,11 +39,12 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     patch 'customers/information' => 'customers#update', as: "information"
     # 退会確認画面
     get 'customers/confirm_withdraw' => 'customers#confirm_withdraw', as: "confirm_withdraw"
-    
     patch 'customers/withdraw' => 'customers#withdraw', as: "withdraw"
     get 'customers/information/edit' => 'customers#edit',as: "edit"
     
     resources :items , only:[ :index, :show]
+    
+    resources :orders, only:[ :new, :log, :thanx, :index, :show]
    
   end
   

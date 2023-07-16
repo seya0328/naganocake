@@ -1,5 +1,5 @@
 <h2>会員情報編集</h2>
-<%= form_with model: @customer, url: customer_registration_path do |f| %>
+<%= form_with model: @customer, url: information_path do |f| %>
   
   <p>姓</p>
   <div class="field">
@@ -41,7 +41,7 @@
   </div>
   
   
-  <%= link_to '退会する', confirm_withdraw_path(current_customer), method: :delete %>
+  <%= link_to '退会する', confirm_withdraw_path(current_customer) %>
 <% end %>
   
 

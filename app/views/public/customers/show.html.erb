@@ -1,7 +1,15 @@
 
   <div class="container px-5 px-sm-0">
     <div class="row">
+      <!--＃renserでmy_pageを呼び出している-->
     <%= render 'public/customers/my_page', user: current_customer %>
     <div class="col-md-8 offset-md-1">
       
-<h2>商品一覧</h2>
+<h2>マイページ</h2>
+  
+<h2>登録情報</h2> 
+  <%= link_to '編集する', edit_path(current_customer) %>
+<h2>配送先</h2>
+  <!--%= link_to '一覧を見る',%>-->
+<h2>注文履歴</h2>
+  <%= link_to '一覧を見る', orders_path %>
