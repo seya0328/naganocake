@@ -25,7 +25,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # 管理者側のルーティング設定
   namespace :admin do #namespaceを適用させている場合、resources :itemsをnamespace :admin do ~ endで囲う
     # get 'items' => 'admin/items#index'
-    post 'items', to: 'items#create'
+    
     resources :items , only:[ :index, :new, :create, :show, :edit, :update]
     
     # get 'admin/sing_in' => 'admin/sessions#new'
