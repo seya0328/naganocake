@@ -28,8 +28,8 @@
                 <%= image_tag item.get_item_image(100,100) %>
                 <% end %>
               </td>
-              <td><%= link_to item.title, item_path(item.id) %></td>
-              <td><%= item.body %></td>
+              <td><%= link_to item.name, item_path(item.id) %></td>
+              <td></td>
             </tr>
             <% end %>
           </tbody>

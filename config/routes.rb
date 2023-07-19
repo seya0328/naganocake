@@ -15,6 +15,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   #root to:はサイトのルートページを決める記述
   root to: "public/homes#top" 
   get "about" => "public/homes#about", as: "about"
+  
   # devise_for :admins
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   # 会員側のルーティング設定
@@ -27,11 +28,11 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     # get 'items' => 'admin/items#index'
     
     resources :items , only:[ :index, :new, :create, :show, :edit, :update]
-    
+    resources :orders, only:[ :show]
     # get 'admin/sing_in' => 'admin/sessions#new'
 
   end
-  
+  #会員のルーティング設定
   scope module: :public do
     # get 'items' => 'public/items#index'
     # customers
@@ -41,7 +42,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     get 'customers/confirm_withdraw' => 'customers#confirm_withdraw', as: "confirm_withdraw"
     patch 'customers/withdraw' => 'customers#withdraw', as: "withdraw"
     get 'customers/information/edit' => 'customers#edit',as: "edit"
-    
+    get 'itmes/:id' => 'itemss#show'
     resources :items , only:[ :index, :show]
     
     resources :orders, only:[ :new, :log, :thanx, :index, :show]
