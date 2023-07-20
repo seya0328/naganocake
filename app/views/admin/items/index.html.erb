@@ -1,20 +1,26 @@
 <h2>商品一覧</h2>
-<!--<table class="table table-striped">-->
-  <thead>
-    <tr>
-        <th>商品ID</th>
-        <th>商品名</th>
-        <th>税抜価格</th>
-    </tr>
-  </thead>
-  <tbody>
-　<% @items.each do |item| %>
-　<tr>
-　    <td><%= link_to item.name %>
-　       
-　    </td>
-　    <td><%= item.introduction %></td>
-　</tr>
-　<% end %>
- </tbody>
-<!--</table>-->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <table>
+          <thead>
+            <tr>
+              <th>商品ID</th>
+              <th>商品名</th>
+              <th>税抜価格</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+          <% @items.each do |item| %>
+      　     <tr>
+      　       <td><%= item.id %></td>
+　            <td><%= link_to item.name %></td>
+　            <td><%= item.price %></td>
+　         </tr>
+　        <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
