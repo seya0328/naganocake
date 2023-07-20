@@ -1,1 +1,18 @@
-<h1>顧客：商品詳細</h1>
+<!--顧客：商品詳細-->
+<% if @item.image.attached? %>
+  <%= image_tag @item.image, size: "300x300" %>
+<% else %>
+  <%= image_tag 'no_image', size: "300x300" %>
+<% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <table>
+          <p><%= @item.name %></p>
+          <p><%= @item.introduction %></p>
+          <p><%= @item.price %><span>円</span></p><br>
+          <%= link_to "カートに入れる", root_path(@item.id) %>
+        </table>
+      </div>
+    </div>
+  </div>
