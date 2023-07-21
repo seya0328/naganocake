@@ -1,1 +1,35 @@
-管理者：顧客詳細画面
+<!--管理者：顧客詳細画面-->
+<h1>さんの会員詳細</h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <table>
+          <h2>会員ID</h2>
+            <p><%= @customer.id %></p>
+
+          <h2>氏名</h2>
+            <p><%= @customer.name %></p>
+
+          <h2>フリガナ</h2>
+            <p><%= @customer.name_kana %>
+            
+          <h2>郵便番号</h2>
+            <p><%= @customer.postal_code %></p>
+            
+          <h2>住所</h2>
+            <p><%= @customer.address %></p>
+            
+          <h2>電話番号</h2>
+            <p><%= @customer.telephone_number %></p>
+            
+          <h2>メールアドレス</h2>
+            <p><%= @customer.email %></p>
+            
+          <h2>会員ステータス</h2>
+            
+          <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
+          <%= link_to "注文履歴一覧を見る", admin_path(@customer.id) %>
+        </table>
+      </div>
+    </div>
+  </div>

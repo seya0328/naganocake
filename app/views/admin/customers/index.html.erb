@@ -1,1 +1,29 @@
-管理者：顧客一覧画面
+<!--管理者：顧客一覧画面-->
+<h2>会員一覧</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <table>
+          <thead>
+            <tr>
+              <th>会員ID</th>
+              <th>氏名</th>
+              <th>メールアドレス</th>
+              <!--<th>退会ステータス</th>-->
+            </tr>
+          </thead>
+          
+          <tbody>
+          <% @customers.each do |customer| %>
+      　     <tr>
+      　       <td><%=customer.id %></td>
+　            <td><%= link_to customer.name %></td>
+　            <td><%= customer.email %></td>
+　            <!--<td>%= customer.is_deleted) %></td>-->
+　         </tr>
+　        <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
