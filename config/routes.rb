@@ -50,6 +50,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     
     resources :orders, only:[ :new, :log, :thanx, :index, :show]
    
+   
   end
   
 end

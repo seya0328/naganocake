@@ -1,6 +1,4 @@
 <div class=container>
-  <!--<div class="row mt-5", style='margin: 0 auto;'>-->
-    <!--<div class="row">-->
   <div class="row mt-5 justify-content-center">
     <div class="col-6">
       <p class="text-center">
@@ -8,28 +6,20 @@
             このサイトは、ケーキ販売のECサイトになります。<br>
             会員でない方も商品の閲覧はできますが、<br>
             購入には会員登録が必要になります。
-       </p> 
+      </p> 
     </div>
   </div>    
-      <!--<div class="col-12">-->
-        <!--<p style="text-align: center;">-->
-       
-      
-        
-      <!--</div>-->
-    <!--</div>-->
-  
 </div>
 <h2>新着商品</h2>
-          <tbody>
-            <% @items.each do |item| %>
-            <tr>
-              <td><%= link_to item_path(item.id) do %>
-                <%= image_tag item.get_image(100,100) %>
-                <% end %>
-              </td>
-              <td><%= link_to item.name, item_path(item.id) %></td>
-              <td></td>
-            </tr>
-            <% end %>
-          </tbody>
+  <tbody>
+    <% @items.each do |item| %>
+    <tr>
+      <td><%= link_to item_path(item.id) do %>
+      <%= image_tag item.get_image(100,100) %>
+      <% end %>
+      </td>
+      <td><%= link_to item.name, item_path(item.id) %></td>
+      <td></td>
+    </tr>
+    <% end %>
+  </tbody>
