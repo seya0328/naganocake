@@ -3,7 +3,7 @@ class Admin::CustomersController < ApplicationController
     @customers = Customer.all
   end
   def show
-    @customers = Customer.find(params[:id])
+    @customer = Customer.find(params[:id])
   end 
   def edit
     @customers = Customer.find(params[:id])

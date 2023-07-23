@@ -8,10 +8,10 @@
             <p><%= @customer.id %></p>
 
           <h2>氏名</h2>
-            <p><%= @customer.name %></p>
+            <p><%= @customer.last_name %></p>
 
           <h2>フリガナ</h2>
-            <p><%= @customer.name_kana %>
+            <p><%= @customer.last_name_kana %>
             
           <h2>郵便番号</h2>
             <p><%= @customer.postal_code %></p>
@@ -26,6 +26,11 @@
             <p><%= @customer.email %></p>
             
           <h2>会員ステータス</h2>
+          <td><% if @customer.is_deleted == false %>
+　            有効
+　            <% else %> 
+　            退会
+　            <% end %></td>
             
           <%= link_to "編集する", edit_admin_customer_path(@customer.id) %>
           <%= link_to "注文履歴一覧を見る", admin_path(@customer.id) %>

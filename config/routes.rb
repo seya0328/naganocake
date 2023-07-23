@@ -26,12 +26,10 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
   # 管理者側のルーティング設定
   namespace :admin do #namespaceを適用させている場合、resources :itemsをnamespace :admin do ~ endで囲う
     # get 'items' => 'admin/items#index'
-    get 'customers' => 'customers#index'
-    get 'customers/:id' => 'cutomers#show'
-    get 'customers/:id/edit' => 'cutomers#edit'
-    patch 'customers/:id' => 'customers#update'
+    get "/" => "homes#top"
     resources :items , only:[ :index, :new, :create, :show, :edit, :update]
     resources :orders, only:[ :show]
+    resources :customers, only:[ :index, :show, :update, :edit]
     # get 'admin/sing_in' => 'admin/sessions#new'
 
   end
