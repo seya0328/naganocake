@@ -4,14 +4,14 @@
 <%= form_with model: @customers, url:admin_customers_path, method: :post do |f| %>
  <!-- 商品画像と税抜き価格のリンクまだ-->
   <h4>会員ID</h4>
-   <%= f.file_field :id %>
+   <%= @customers.id %>
    
   <h4>氏名</h4>
-  <%= f.text_field :name %>
-	
+  <%= f.text_field :last_name %>
+	<%= f.text_field :first_name %>
   <h4>フリガナ</h4>
-  <%= f.text_field :name_kana %>
-  
+  <%= f.text_field :last_name_kana %>
+  <%= f.text_field :first_name_kana %>
   <h4>郵便番号</h4>
 	 <%= f.number_field :postal_code %>
 	 
@@ -25,8 +25,9 @@
 	 <%= f.text_field :email %>
 	 
 	<h4>会員ステータス</h4>
-	 <%= form.radio_button :is_deleted, "有効" %>有効 <%= form.radio_button :is_deleted, "退会" %>退会
-
+	<!--#radio_buttonは丸い選択ボタン-->
+	 <%= f.radio_button :is_deleted, :false%>有効 <%= f.radio_button :is_deleted, :ture %>退会
+  
   <%= f.submit '変更を保存' %>
 <% end %>
 
