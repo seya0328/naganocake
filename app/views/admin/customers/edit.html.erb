@@ -28,6 +28,7 @@
 	<!--#radio_buttonは丸い選択ボタン-->
 	 <%= f.radio_button :is_deleted, :false%>有効 <%= f.radio_button :is_deleted, :ture %>退会
   
-  <%= f.submit '変更を保存' %>
+  <!--%= f.submit '変更を保存' %>-->
+  <%= link_to "変更を保存", admin_customer_path(@customers.id) %>
 <% end %>
 
