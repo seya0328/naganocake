@@ -24,16 +24,17 @@ class Admin::ItemsController < ApplicationController
   end
   
   def edit
-  
+    @item = Item.find(params[:id])
   end
   
   def update
+    
   
   end
   
    private
    
   def item_params
-    params.require(:item).permit(:image_id, :name, :introduction, :price)
+    params.require(:item).permit(:image, :name, :introduction, :price)
   end
 end

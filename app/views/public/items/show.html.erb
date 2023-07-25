@@ -7,12 +7,18 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-9">
-        <table>
-          <p><%= @item.name %></p>
-          <p><%= @item.introduction %></p>
-          <p><%= @item.price %><span>円</span></p><br>
-          <%= link_to "カートに入れる", root_path(@item.id) %>
-        </table>
+        <p><%= @item.name %></p>
+        <p><%= @item.introduction %></p>
+        <p><%= @item.price %><span>円</span></p><br>
+        <%= form_with model: @cart_item do |f| %>
+        <!--＃どの商品か（表示はされない）,:value(コンピューターが受け取る値、実際に保存する内容)-->
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <!--#amountカラム(数量カラム)に保存される-->
+        <%= f.select :amount, *[1..3] %>
+        <%= f.submit 'カートに入れる' %>
+       
+        <% end %>
+        
       </div>
     </div>
   </div>
