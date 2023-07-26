@@ -12,5 +12,9 @@ class Public::CartItemsController < ApplicationController
     current_user.books.destroy_all
   end
   def create
+    @cart_item = CartItem.new(item_params)
+    @cart_item.customer_id = current_customer.id
+    @cart_item.save
+    
   end
 end
