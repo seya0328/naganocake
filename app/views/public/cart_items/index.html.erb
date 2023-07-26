@@ -1,1 +1,31 @@
+<tr class="table-secondary">
 <h2>ショッピングカート</h2>
+</tr>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <table>
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価(税込)</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th></th>
+            </tr>
+          </thead>
+          
+          <tbody>
+          <% @cart_items.each do |cart_item| %>
+      　     <tr>
+      　      <td><%= cart item.id.image %><%= cart item.id.name %> </td>
+      　       <td><%= cart item.id %></td>
+　            <td><%= link_to item.name ,admin_item_path(item.id) %></td>
+　            <td><%= item.price %></td>
+　         </tr>
+　        <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
