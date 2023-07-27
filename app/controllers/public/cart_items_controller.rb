@@ -2,6 +2,7 @@ class Public::CartItemsController < ApplicationController
   def index
     @items = Item.all
     @cart_items = current_customer.cart_items
+    @total_price = 0
   end
   
   def update
@@ -27,9 +28,11 @@ class Public::CartItemsController < ApplicationController
     redirect_to cart_items_path
   end
   
+  
+  
   private 
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :amount, :image)
   end
-  
 end
+
