@@ -3,20 +3,27 @@ class Public::CartItemsController < ApplicationController
     @items = Item.all
     @cart_items = current_customer.cart_items
     @total_price = 0
+    
   end
   
   def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+    redirect_to cart_items_path
   end
   
   def destroy
+    cart_item = CartItem.find(params[:id])
+    cart_item.destroy
+    redirect_to cart_items_path
   end
   
   def destroy_all
-    current_user.books.destroy_all
+    current_customer.cart_items.destroy_all
   end
   
   def create
-    binding.pry
+    # binding.pry
     #新しくカートに入れた商品をcart_itemモデルに保存している
     #(cart_item_params)は下で定義しているものが呼び出されている
     @cart_item = CartItem.new(cart_item_params)
@@ -26,6 +33,15 @@ class Public::CartItemsController < ApplicationController
     @cart_item.save
     #createアクションが実行された時、遷移されるページをredirect_toとパスで指定する
     redirect_to cart_items_path
+    
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+      if cart_item.item_id == @cart_item.item_id
+        amount = cart_item.amount + @cart_item.amount
+        cart_item.update_attribute(:amount, amount)
+        @cart_item.delete
+      end
+    end
   end
   
   
@@ -34,5 +50,6 @@ class Public::CartItemsController < ApplicationController
   def cart_item_params
     params.require(:cart_item).permit(:item_id, :amount, :image)
   end
+  
 end
 

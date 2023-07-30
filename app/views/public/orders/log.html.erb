@@ -13,7 +13,7 @@
           <tr>
             <td><%= cart_item.item.with_tax_price%></td>
             <td><%= cart_item.subtotal%></td>
-            <% @合計金額 +=  cart_item.subtotal %>
+            <% @total_price +=  cart_item.subtotal %>
           </tr>
         <% end %>
         </tbody>

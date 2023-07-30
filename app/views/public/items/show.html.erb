@@ -14,7 +14,7 @@
         <!--＃どの商品か（表示はされない）,:value(コンピューターが受け取る値、実際に保存する内容)-->
         <%= f.hidden_field :item_id, :value => @item.id %>
         <!--#amountカラム(数量カラム)に保存される-->
-        <%= f.select :amount, *[1..3] %>
+        <%= f.select :amount, *[1..10] %>
         <%= f.submit 'カートに入れる' %>
        
         <% end %>
