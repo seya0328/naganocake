@@ -48,6 +48,7 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     resources :orders, only:[ :new, :index, :show]
     post 'orders/log' => 'orders#log'
     get 'orders/thanx' => 'orders#thanx'
+    delete 'cart_item_destroy_all' => 'cart_items#destroy_all',as:"cart_items_destroy_all"
     resources :cart_items, only:[ :index, :update, :destroy, :create]
     
    

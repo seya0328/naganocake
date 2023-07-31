@@ -5,8 +5,10 @@
     
     <% @items.each do |item| %>
       <div class="col-3">
+      <%= link_to item_path(item.id) do %>
       <%= image_tag item.image, size: "100x100" %>
       <p><%= item.name %></p>
+      <% end %>
       <p><%= item.price %><span>円</span></p><br>
       </div>
     <% end %>
