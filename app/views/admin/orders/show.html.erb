@@ -1,0 +1,21 @@
+<!--#管理者：注文詳細画面-->
+<h4>注文履歴詳細</h4>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+          <h5>購入者</h5>
+            <p><%= @customer.id %></p>
+          <h5>注文日</h5>
+            <p><%= @ordre.created_at %></p>
+          <h5>配送先</h5>
+            <P></P>
+          <h5>支払方法</h5>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>商品名</th>
+          <th>単価(税込)</th>
+          <th>小計</th>
+         </tr>
+      </thead>
+    </table>
