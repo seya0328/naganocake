@@ -1,0 +1,29 @@
+<!--#管理者トップページ-->
+<h2>注文履歴一覧</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <table>
+          <thead>
+            <tr>
+              <th>購入日時</th>
+              <th>購入者</th>
+              <th>注文個数</th>
+            </tr>
+          </thead>
+          
+          <tbody>
+          <% @orders.each do |order| %>
+      　     <tr>
+              <td><%= link_to customer.created_at, admin_order_path(order.id) do %></td>
+                  <% end %>
+              <td><%= customer.full_name %></td>
+              <td><%= customer.amount %></td>
+　          </tr>
+　        <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+

@@ -32,17 +32,19 @@ class Public::CartItemsController < ApplicationController
     @cart_item.customer_id = current_customer.id
     #カートに入れたアイテムを保存する
     @cart_item.save
-    #createアクションが実行された時、遷移されるページをredirect_toとパスで指定する
-    redirect_to cart_items_path
-    
+   
     @cart_items = current_customer.cart_items.all
-    @cart_items.each do |cart_item|
-      if cart_item.item_id == @cart_item.item_id
-        amount = cart_item.amount + @cart_item.amount
-        cart_item.update_attribute(:amount, amount)
-        @cart_item.delete
+    @cart_items.each do |cart_item|#カートに入れた商品全てを取り出している
+      if @cart_item.id != cart_item.id #idが異なった時の処理
+        if cart_item.item_id == @cart_item.item_id 
+           amount = cart_item.amount + @cart_item.amount
+           cart_item.update_attribute(:amount, amount)
+           @cart_item.delete
+        end
       end
     end
+     #createアクションが実行された時、遷移されるページをredirect_toとパスで指定する
+    redirect_to cart_items_path
   end
   
   

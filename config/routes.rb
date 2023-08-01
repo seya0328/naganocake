@@ -28,8 +28,8 @@ devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     # get 'items' => 'admin/items#index'
     get "/" => "homes#top"
     resources :items , only:[ :index, :new, :create, :show, :edit, :update]
-    resources :orders, only:[ :show]
     resources :customers, only:[ :index, :show, :update, :edit]
+    get "orders/:id" => 'order#show', as: "order"
     # get 'admin/sing_in' => 'admin/sessions#new'
 
   end
