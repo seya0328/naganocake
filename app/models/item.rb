@@ -8,6 +8,7 @@ class Item < ApplicationRecord
    #item_imageという名前でActiveStorageで商品画像を保存できるように設定。
   has_one_attached :image
   has_many :cart_items,dependent: :destroy
+   has_many :orders, through: :order_items
   
   def get_image(width,height)
     
