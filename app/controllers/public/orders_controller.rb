@@ -31,7 +31,9 @@ class Public::OrdersController < ApplicationController
   end
   
   def index
-    
+    @order = Order.all
+    @order_items = current_customer.order_items
+    @total_price = 0
   end
   
   def show

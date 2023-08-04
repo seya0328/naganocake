@@ -36,7 +36,7 @@ class Public::CartItemsController < ApplicationController
     @cart_items = current_customer.cart_items.all
     @cart_items.each do |cart_item|#カートに入れた商品全てを取り出している
       if @cart_item.id != cart_item.id #idが異なった時の処理
-        if cart_item.item_id == @cart_item.item_id 
+        if cart_item.item_id == @cart_item.item_id
            amount = cart_item.amount + @cart_item.amount
            cart_item.update_attribute(:amount, amount)
            @cart_item.delete
